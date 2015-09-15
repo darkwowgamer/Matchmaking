@@ -1,13 +1,20 @@
 package controller.PlayersPicker;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import model.Player;
 
-//PlayerPicker is used to pick players for a match.
-//different picking strategy can be applied to different implementation.
-//no matter what picking strategy is taken, the result arraylist should follow logical order so that players can be splitted
+/**
+ * 
+ * Abstract class of players picker.
+ * 
+ * PlayerPicker is used to pick players for a match. Different picking strategy
+ * can be applied to different implementation. No matter what picking strategy
+ * is taken, players should be arranged in the arraylist based on their rating
+ * so that spliter can work on this.
+ * 
+ */
 public abstract class PlayersPicker {
-	public abstract ArrayList<Player> pickPlayers(int playerCount,
-			ArrayList<Player> players);
+	public abstract List<Player> pickPlayers(int playerCount,
+			List<Player> players);
 }

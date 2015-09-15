@@ -1,8 +1,10 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import com.riotgames.interview.hongkong.matchmaking.SampleData;
 
 import controller.PlayersPicker.FastPlayersPicker;
 import controller.PlayersPicker.PlayersPicker;
@@ -14,7 +16,7 @@ import controller.PlayersSpliter.PlayersSpliter;
  */
 public class MatchmakerImpl implements Matchmaker {
 	// used a arraylist to hold players pool
-	private ArrayList<Player> players;
+	private List<Player> players;
 	// players picker object used to pick players for match
 	private PlayersPicker playersPicker;
 	// players spliter object used to split picked players in to two teams
@@ -23,13 +25,15 @@ public class MatchmakerImpl implements Matchmaker {
 	// if no parameter is given, use FastPlayerPicker and NaivePlayerSpliter as
 	// default
 	public MatchmakerImpl() {
+		this.players = SampleData.getPlayers();
 		this.playersPicker = new FastPlayersPicker();
 		this.playersSpliter = new NaivePlayersSpliter();
 	}
 
 	// use given parameters
-	public MatchmakerImpl(PlayersPicker playersPicker,
+	public MatchmakerImpl(List<Player> players, PlayersPicker playersPicker,
 			PlayersSpliter playersSpliter) {
+		this.players = players;
 		this.playersPicker = playersPicker;
 		this.playersSpliter = playersSpliter;
 	}
@@ -40,11 +44,11 @@ public class MatchmakerImpl implements Matchmaker {
 	 */
 	public Match findMatch(int playersPerTeam) {
 		int playerCount = playersPerTeam * 2;
-		if (playerCount > players.size()) {
+		if (playerCount > players.size() || playersPerTeam == 0) {
 			return null;
 		}
-		ArrayList<Player> matchedPlayers = playersPicker.pickPlayers(
-				playerCount, players);
+		List<Player> matchedPlayers = playersPicker.pickPlayers(playerCount,
+				players);
 		if (matchedPlayers == null) {
 			return null;
 		}

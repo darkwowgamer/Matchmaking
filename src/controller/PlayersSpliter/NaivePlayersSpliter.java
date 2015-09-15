@@ -1,23 +1,19 @@
 package controller.PlayersSpliter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import model.Player;
 
 public class NaivePlayersSpliter extends PlayersSpliter {
 	@Override
-	public ArrayList<Player> splitPlayer(int playerCount,
-			ArrayList<Player> players) {
-		ArrayList<Player> splittedPlayers = new ArrayList<Player>();
+	public List<Player> splitPlayer(int playerCount, List<Player> players) {
+		List<Player> splittedPlayers = new ArrayList<Player>();
 		for (int i = 0; i < playerCount / 2; i++) {
-			if (i % 2 == 0) {
-				splittedPlayers.add(players.get(i));
-			}
+			splittedPlayers.add(players.get(i * 2));
 		}
 		for (int i = 0; i < playerCount / 2; i++) {
-			if (i % 2 != 0) {
-				splittedPlayers.add(players.get(i));
-			}
+			splittedPlayers.add(players.get(i * 2 + 1));
 		}
 		return splittedPlayers;
 	}
