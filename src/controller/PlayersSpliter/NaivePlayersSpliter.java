@@ -5,6 +5,9 @@ import java.util.List;
 
 import model.Player;
 
+/**
+ * Interleaving given players and return the result.
+ */
 public class NaivePlayersSpliter extends PlayersSpliter {
 	@Override
 	public List<Player> splitPlayer(int playerCount, List<Player> players) {

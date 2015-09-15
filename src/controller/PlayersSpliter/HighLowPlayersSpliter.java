@@ -5,7 +5,11 @@ import java.util.List;
 
 import model.Player;
 
-//since the players are all in order, put the first and the last player in the arraylist together, the second and the second to last together, and so on
+/**
+ * Since the players are all in order, put the first and the last player in the
+ * arraylist together, the second and the second to last together, and so on.
+ * Fianlly, return the result.
+ */
 public class HighLowPlayersSpliter extends PlayersSpliter {
 	@Override
 	public List<Player> splitPlayer(int playerCount, List<Player> players) {

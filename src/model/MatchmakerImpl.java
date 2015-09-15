@@ -47,15 +47,19 @@ public class MatchmakerImpl implements Matchmaker {
 		if (playerCount > players.size() || playersPerTeam == 0) {
 			return null;
 		}
+		// @matchedPlayers picked players for a match
 		List<Player> matchedPlayers = playersPicker.pickPlayers(playerCount,
 				players);
+		// if not enough players satisfy match rule, return null
 		if (matchedPlayers == null) {
 			return null;
 		}
+		// split the players into two half
 		matchedPlayers = playersSpliter
 				.splitPlayer(playerCount, matchedPlayers);
 		Set<Player> team1 = new HashSet<Player>();
 		Set<Player> team2 = new HashSet<Player>();
+		// arrange first half players to team 1, second half to team 2
 		for (int i = 0; i < playerCount; i++) {
 			if (i < playersPerTeam) {
 				team1.add(matchedPlayers.get(i));
