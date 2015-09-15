@@ -1,13 +1,13 @@
-package playerPicker;
+package controller.PlayersPicker;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import com.riotgames.interview.hongkong.matchmaking.Player;
+import model.Player;
 
 //RangedPlayerPicker implements PlayerPicker,
 //it will first sort the palyers, then it uses a maxDiff representing the maximum difference between players
-public class RangedPlayerPicker extends PlayerPicker {
+public class RangedPlayersPicker extends PlayersPicker {
 	// maximum win rate difference allowed to form a team;
 	private final double maxDiff = 0.2;
 

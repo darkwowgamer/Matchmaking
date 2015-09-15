@@ -1,8 +1,8 @@
-package playersSpliter;
+package controller.PlayersSpliter;
 
 import java.util.ArrayList;
 
-import com.riotgames.interview.hongkong.matchmaking.Player;
+import model.Player;
 
 public abstract class PlayersSpliter {
 	// this method will split players into two consecutive parts and each part

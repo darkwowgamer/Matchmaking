@@ -3,6 +3,8 @@ package com.riotgames.interview.hongkong.matchmaking;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Player;
+
 public class SampleData {
 
 	public static List<Player> getPlayers() {

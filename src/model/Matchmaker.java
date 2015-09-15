@@ -1,4 +1,4 @@
-package com.riotgames.interview.hongkong.matchmaking;
+package model;
 
 public interface Matchmaker {
 

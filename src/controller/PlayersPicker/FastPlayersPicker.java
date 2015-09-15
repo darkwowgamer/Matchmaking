@@ -1,15 +1,18 @@
-package playerPicker;
+package controller.PlayersPicker;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
-import com.riotgames.interview.hongkong.matchmaking.Player;
+import model.Player;
 
-//totally random picking players to make a match.
-//difference with FastPlayerPicker is that this one don't sort the arraylist
-public class NaivePlayerPicker extends PlayerPicker {
+//this PlayerPicker will randomly pick the first player from players and use the following players to make the match.
+//the reason why this is called fast is that as long as they are enough players, it can start the game and the players matched together have consecutive ratings
+public class FastPlayersPicker extends PlayersPicker {
+	@Override
 	public ArrayList<Player> pickPlayers(int playerCount,
 			ArrayList<Player> players) {
+		Collections.sort(players);
 		ArrayList<Player> matchedPlayers = new ArrayList<Player>();
 		Random randomGenerator = new Random();
 		int firstPlayerIndex = randomGenerator.nextInt(players.size()

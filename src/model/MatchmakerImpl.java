@@ -1,23 +1,23 @@
-package com.riotgames.interview.hongkong.matchmaking;
+package model;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-import playerPicker.PlayerPicker;
-import playersSpliter.PlayersSpliter;
+import controller.PlayersPicker.PlayersPicker;
+import controller.PlayersSpliter.PlayersSpliter;
 
 /**
  * The matchmaking implementation that you will write.
  */
 public class MatchmakerImpl implements Matchmaker {
 	private ArrayList<Player> players;
-	private PlayerPicker playerPicker;
+	private PlayersPicker playersPicker;
 	private PlayersSpliter playersSpliter;
 
-	public MatchmakerImpl(PlayerPicker playerPicker,
+	public MatchmakerImpl(PlayersPicker playersPicker,
 			PlayersSpliter playersSpliter) {
-		this.playerPicker = playerPicker;
+		this.playersPicker = playersPicker;
 		this.playersSpliter = playersSpliter;
 	}
 
@@ -26,7 +26,7 @@ public class MatchmakerImpl implements Matchmaker {
 		if (playerCount > players.size()) {
 			return null;
 		}
-		ArrayList<Player> matchedPlayers = playerPicker.pickPlayers(
+		ArrayList<Player> matchedPlayers = playersPicker.pickPlayers(
 				playerCount, players);
 		if (matchedPlayers == null) {
 			return null;

@@ -1,4 +1,6 @@
-package com.riotgames.interview.hongkong.matchmaking;
+package model;
+
+import com.riotgames.interview.hongkong.matchmaking.SampleData;
 
 /**
  * <p>
