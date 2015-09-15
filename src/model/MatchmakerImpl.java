@@ -4,23 +4,40 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import controller.PlayersPicker.FastPlayersPicker;
 import controller.PlayersPicker.PlayersPicker;
+import controller.PlayersSpliter.NaivePlayersSpliter;
 import controller.PlayersSpliter.PlayersSpliter;
 
 /**
  * The matchmaking implementation that you will write.
  */
 public class MatchmakerImpl implements Matchmaker {
+	// used a arraylist to hold players pool
 	private ArrayList<Player> players;
+	// players picker object used to pick players for match
 	private PlayersPicker playersPicker;
+	// players spliter object used to split picked players in to two teams
 	private PlayersSpliter playersSpliter;
 
+	// if no parameter is given, use FastPlayerPicker and NaivePlayerSpliter as
+	// default
+	public MatchmakerImpl() {
+		this.playersPicker = new FastPlayersPicker();
+		this.playersSpliter = new NaivePlayersSpliter();
+	}
+
+	// use given parameters
 	public MatchmakerImpl(PlayersPicker playersPicker,
 			PlayersSpliter playersSpliter) {
 		this.playersPicker = playersPicker;
 		this.playersSpliter = playersSpliter;
 	}
 
+	/*
+	 * try to find a match using given players number and players picker and
+	 * players splitter
+	 */
 	public Match findMatch(int playersPerTeam) {
 		int playerCount = playersPerTeam * 2;
 		if (playerCount > players.size()) {
@@ -45,25 +62,12 @@ public class MatchmakerImpl implements Matchmaker {
 		return new Match(team1, team2);
 	}
 
-	// I made a trade off here.
-	// 1. Should I make this new player into the player pool ASAP so that if
-	// this one can join a match which it satifies the win rate difference.
-	// 2. Or should I making this new player wating in a new player pool until
-	// there are not enough players to make a match from the old player pool,
-	// because others arrived here early than this one and it should be arranged
-	// after them.
-	// If I don't take win rate difference into consideration, the 2nd one is
-	// better. But it might create unfair match. As for the 1st one, there is a
-	// chance that a player might need to wait until enough similar win rate
-	// players joined the game.
+	/*
+	 * add a player into players pool
+	 */
 	public void enterMatchmaking(Player player) {
 		if (!players.contains(player)) {
 			players.add(player);
 		}
-	}
-
-	public static void main(String[] args) {
-		// MatchmakerImpl t = new MatchmakerImpl();
-		// t.findMatch(5);
 	}
 }

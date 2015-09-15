@@ -16,14 +16,17 @@ import com.riotgames.interview.hongkong.matchmaking.SampleData;
  * </p>
  */
 public class Player implements Comparable<Player> {
-
 	// removed final keyword since these variables change after ever match and
 	// player can change their name in LoL
-	private String name;
-	private long wins;
-	private long losses;
-	// win rate
+	private final String name;
+	private final long wins;
+	private final long losses;
+	// win rate, which is calculated by wins / (wins + losses)
 	private double winRate;
+	// this variable is optional, similar with tier in LoL, the intention for
+	// this variable is that players arranged into the same match has a certain
+	// maximum tier difference
+	private int tier;
 
 	public Player(String name, long wins, long losses) {
 		this.name = name;
@@ -37,8 +40,9 @@ public class Player implements Comparable<Player> {
 		}
 	}
 
-	public Player(double winRate) {
-		this.winRate = winRate;
+	public Player(String name, long wins, long losses, int tier) {
+		this(name, wins, losses);
+		this.tier = tier;
 	}
 
 	public String getName() {
@@ -57,9 +61,15 @@ public class Player implements Comparable<Player> {
 		return winRate;
 	}
 
-	@Override
-	public int compareTo(Player o) {
-		double rst = this.getWinRate() - o.getWinRate();
+	public int getTier() {
+		return tier;
+	}
+
+	/*
+	 * used to sort players based on their win rate
+	 */
+	public int compareTo(Player other) {
+		double rst = this.getWinRate() - other.getWinRate();
 		if (rst == 0) {
 			return 0;
 		} else if (rst > 0) {
