@@ -23,9 +23,10 @@ public class RangedPlayersPicker extends PlayersPicker {
 		List<Player> matchedPlayers = new ArrayList<Player>();
 		// @tries try how many times before stop
 		int tries = players.size();
-		while (tries-- > 0) {
+		while (tries-- > 0 && players.size() - playerCount >= 0) {
 			Random ran = new Random();
-			int firstPlayerIndex = ran.nextInt(players.size() - playerCount);
+			int firstPlayerIndex = ran
+					.nextInt(players.size() - playerCount + 1);
 			if (players.get(firstPlayerIndex).getWinRate() + rateDiff < players
 					.get(firstPlayerIndex + playerCount - 1).getWinRate()) {
 				continue;

@@ -4,15 +4,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.riotgames.interview.hongkong.matchmaking.SampleData;
-
+import tester.SampleData;
 import controller.PlayersPicker.FastPlayersPicker;
 import controller.PlayersPicker.PlayersPicker;
 import controller.PlayersSpliter.NaivePlayersSpliter;
 import controller.PlayersSpliter.PlayersSpliter;
 
 /**
- * The matchmaking implementation that you will write.
+ * To make a match making work, following things should be provided: 1. palyers:
+ * players pool. 2. playersPicker: the picking strategy is written this object.
+ * 3. playersSplitter: after players are picked and stored in list, this
+ * indicate how to arrange them into two teams.
  */
 public class MatchmakerImpl implements Matchmaker {
 	// used a arraylist to hold players pool

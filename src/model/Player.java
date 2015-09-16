@@ -1,7 +1,5 @@
 package model;
 
-import com.riotgames.interview.hongkong.matchmaking.SampleData;
-
 /**
  * <p>
  * Representation of a player.

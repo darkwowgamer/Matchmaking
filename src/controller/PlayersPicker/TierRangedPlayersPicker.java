@@ -12,9 +12,12 @@ import model.Player;
  * an extra instance variable "tier". The difference between this one and
  * RangedPlayersPicker is that if a candidate player's tier differs more than
  * tierDiff wih the first picked player, it will be passed.
+ * 
+ * Note: SampleData2 should be used if this picker is choosen, it has the tier
+ * field
  */
 public class TierRangedPlayersPicker extends PlayersPicker {
-	private final double rateDiff = 0.5;
+	private final double rateDiff = 0.01;
 	// maximum allowed tier difference among players
 	private final int tierDiff = 1;
 
@@ -27,11 +30,12 @@ public class TierRangedPlayersPicker extends PlayersPicker {
 		List<Player> matchedPlayers = new ArrayList<Player>();
 		// @tries try how many times before stop
 		int tries = players.size();
-		while (tries-- > 0) {
+		while (tries-- > 0 && players.size() - playerCount >= 0) {
 			Random ran = new Random();
 			// randomly pick the first player, at least playerCount number of
 			// players available to pick
-			int firstPlayerIndex = ran.nextInt(players.size() - playerCount);
+			int firstPlayerIndex = ran
+					.nextInt(players.size() - playerCount + 1);
 			Player firstPlayer = players.get(firstPlayerIndex);
 			// minimum allowed tier
 			int minTier = players.get(firstPlayerIndex).getTier() - tierDiff;

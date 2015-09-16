@@ -25,7 +25,7 @@ public class FastPlayersPicker extends PlayersPicker {
 		// randomly pick the first player, at least playerCount number of
 		// players available to pick
 		int firstPlayerIndex = randomGenerator.nextInt(players.size()
-				- playerCount);
+				- playerCount + 1);
 		for (int i = 0; i < playerCount; i++) {
 			matchedPlayers.add(players.get(i + firstPlayerIndex));
 		}
