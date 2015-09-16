@@ -18,4 +18,6 @@ import model.Player;
 public abstract class PlayersPicker {
 	public abstract List<Player> pickPlayers(int playerCount,
 			List<Player> players);
+
+	public abstract String toString();
 }

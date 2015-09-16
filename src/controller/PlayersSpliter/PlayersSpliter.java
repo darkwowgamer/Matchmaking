@@ -16,4 +16,6 @@ import model.Player;
 public abstract class PlayersSpliter {
 	public abstract List<Player> splitPlayer(int playerCount,
 			List<Player> players);
+
+	public abstract String toString();
 }

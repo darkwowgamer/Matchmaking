@@ -12,13 +12,10 @@ import model.Player;
  * an extra instance variable "tier". The difference between this one and
  * RangedPlayersPicker is that if a candidate player's tier differs more than
  * tierDiff wih the first picked player, it will be passed.
- * 
- * Note: SampleData2 should be used if this picker is choosen, it has the tier
- * field
  */
 public class TierRangedPlayersPicker extends PlayersPicker {
-	private final double rateDiff = 0.01;
-	// maximum allowed tier difference among players
+	private final double rateDiff = 0.02;
+	// maximum allowed tier difference between first picked player and others
 	private final int tierDiff = 1;
 
 	@Override
@@ -68,5 +65,13 @@ public class TierRangedPlayersPicker extends PlayersPicker {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("TierRangedPlayersPicker | " + "Rate Difference: " + rateDiff
+				+ " | Tier Difference: " + tierDiff);
+		return sb.toString();
 	}
 }

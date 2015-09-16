@@ -20,4 +20,9 @@ public class HighLowPlayersSpliter extends PlayersSpliter {
 		}
 		return splittedPlayers;
 	}
+
+	@Override
+	public String toString() {
+		return "NaivePlayersSpliter";
+	}
 }

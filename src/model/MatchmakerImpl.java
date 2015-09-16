@@ -80,4 +80,12 @@ public class MatchmakerImpl implements Matchmaker {
 			players.add(player);
 		}
 	}
+
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Players Count: " + this.players.size() + "\n");
+		sb.append("Picker: " + this.playersPicker.toString() + "\n");
+		sb.append("Splitter: " + this.playersSpliter.toString() + "\n");
+		return sb.toString();
+	}
 }

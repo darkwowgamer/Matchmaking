@@ -11,14 +11,15 @@ public class MatchmakerTester {
 	public static void main(String[] args) {
 		MatchmakerImpl mm = new MatchmakerImpl(SampleData.getPlayers(),
 				new TierRangedPlayersPicker(), new HighLowPlayersSpliter());
+		System.out.println(mm.toString());
 		ArrayList<Match> matches = new ArrayList<Match>();
-		Match tmpMatch = mm.findMatch(5);
+		Match tmpMatch = mm.findMatch(3);
 		while (tmpMatch != null) {
-			System.out.println("Match number " + matches.size() + ":");
+			System.out.println("Match No." + matches.size() + ":");
 			System.out.println(tmpMatch.toString());
 			matches.add(tmpMatch);
-			tmpMatch = mm.findMatch(5);
+			tmpMatch = mm.findMatch(3);
 		}
-		System.out.println("Found match number:" + matches.size());
+		System.out.println("Total matches found:" + matches.size());
 	}
 }

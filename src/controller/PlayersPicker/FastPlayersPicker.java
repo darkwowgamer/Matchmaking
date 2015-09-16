@@ -8,10 +8,9 @@ import java.util.Random;
 import model.Player;
 
 /**
- * This PlayerPicker will randomly pick the first player from players and use
- * the following players to make the match. The reason why this is called fast
- * is that as long as they are enough players, it can start the game and the
- * players matched together have consecutive ratings.
+ * Based on RangedPlayersPicker, this picker uses tierDiff to define maximum
+ * allowed tier difference, which I think is also used in LoL so that Platinum
+ * players can't be matched with Master players no matter what their MMR is.
  */
 public class FastPlayersPicker extends PlayersPicker {
 	@Override
@@ -32,5 +31,11 @@ public class FastPlayersPicker extends PlayersPicker {
 		// remove all picked players from players pool
 		players.removeAll(matchedPlayers);
 		return matchedPlayers;
+	}
+
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("FastPlayersPicker");
+		return sb.toString();
 	}
 }
