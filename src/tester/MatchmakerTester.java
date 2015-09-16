@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 import model.Match;
 import model.MatchmakerImpl;
-import controller.PlayersPicker.TierRangedPlayersPicker;
+import controller.PlayersPicker.RangedPlayersPicker;
 import controller.PlayersSpliter.HighLowPlayersSpliter;
 
 public class MatchmakerTester {
 	public static void main(String[] args) {
 		MatchmakerImpl mm = new MatchmakerImpl(SampleData.getPlayers(),
-				new TierRangedPlayersPicker(), new HighLowPlayersSpliter());
+				new RangedPlayersPicker(), new HighLowPlayersSpliter());
 		System.out.println(mm.toString());
 		ArrayList<Match> matches = new ArrayList<Match>();
 		Match tmpMatch = mm.findMatch(5);

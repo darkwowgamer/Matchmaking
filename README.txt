@@ -10,9 +10,9 @@ WHAT I CHANGED
 	I think MMR used in LoL is better. But since when it comes to compare numbers, they have the same
 	effect so I didn't add the MMR field.
 2.	SampleData.java:
-	1>	Extract data from the original files and add new field "tier" into every entry.
+	1>	Extract data from the original file and add new field "tier" into every entry.
 3.	Match.java:
-	1>	Implement toString() method so that match result can be showed as string
+	1>	Implement toString() method so that match result can be showed as string.
 
 WHAT I ADDED
 1.	Abstract class PlayersPicker and its inherited classes FastPlayersPicker, RangedPlayersPicker and
@@ -27,14 +27,14 @@ WHAT I ADDED
 		This picker This PlayerPicker will randomly pick the first player from sorted players and use the
 	following players to make the match. The reason why this is called fast is that as long as they are
 	enough players, it can start the game and the players matched together have consecutive ratings.
-	5> 	RangedPlayersPicker: 
+	5>	RangedPlayersPicker: 
 		This picker uses a maxDiff representing the maximum difference allowed among players. Difference 
 	with FastPlayersPicker is that if the last player to be picked doesn't satisfy rateDiff, it will 
 	try next randomly picked player as first picked player.
 	6>	TierRangedPlayersPicker:
 		Based on RangedPlayersPicker, this picker uses tierDiff to define maximum allowed tier difference, 
-	which I think is also used in LoL so that Platinum players can't be matched with Master players no 
-	matter what their MMR is.
+	which I think is also used in LoL so that Platinum players can't be matched with Challenger players no 
+	matter how close their MMRs are.
 	7>	More sofisticated picking strategy can be implemented by taking more factors into consideration 
 	such as MMR, role preference, recent wins/losses etc.
 	8>	Also, with waiting time increase, players become impatient. We can consider to "loose" our 
@@ -54,5 +54,5 @@ WHAT I ADDED
 	to minimize their square deviation etc.
 
 3.	MatchmakerTester:
-	1> Used to test MatchmakerImpl.
-	2> Create output to console.
+	1>	Used to test MatchmakerImpl.
+	2>	Create output to console.

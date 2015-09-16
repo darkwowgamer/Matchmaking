@@ -15,7 +15,7 @@ import model.Player;
  */
 public class RangedPlayersPicker extends PlayersPicker {
 	// maximum win rate difference allowed to form a team;
-	private final double rateDiff = 0.2;
+	private final double rateDiff = 0.1;
 
 	@Override
 	public List<Player> pickPlayers(int playerCount, List<Player> players) {

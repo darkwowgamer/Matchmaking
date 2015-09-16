@@ -14,7 +14,7 @@ import model.Player;
  * tierDiff wih the first picked player, it will be passed.
  */
 public class TierRangedPlayersPicker extends PlayersPicker {
-	private final double rateDiff = 0.05;
+	private final double rateDiff = 0.1;
 	// maximum allowed tier difference between first picked player and others
 	private final int tierDiff = 1;
 

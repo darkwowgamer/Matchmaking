@@ -1,5 +1,7 @@
 package model;
 
+import tester.SampleData;
+
 /**
  * <p>
  * Representation of a player.
@@ -22,8 +24,8 @@ public class Player implements Comparable<Player> {
 	// win rate, which is calculated by wins / (wins + losses)
 	private double winRate;
 	// this variable is optional, similar with tier in LoL, the intention for
-	// this variable is that players arranged into the same match has a certain
-	// maximum tier difference
+	// is that players arranged into the same match has a certain maximum tier
+	// difference
 	private int tier;
 
 	public Player(String name, long wins, long losses) {
