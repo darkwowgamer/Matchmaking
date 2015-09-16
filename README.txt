@@ -1,3 +1,9 @@
+The program is divided into three parts.
+1.	Controller including PlayersPicker and PlayersSpliter which 
+decide the strategy to pick players from players pool.
+2.	Model including Match.java, Matchmaker.java, MatchmakerImpl.java and Player.java.
+3.	Tester including MatchmakerTester.java which is used to test Matchmaker and SampleData.java.
+
 WHAT I CHANGED
 1.	Players.java:
 	1>	Each Player should have a rating associated with it. So there's a standard that can be used to
