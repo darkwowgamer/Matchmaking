@@ -27,8 +27,8 @@ public class TierRangedPlayersPicker extends PlayersPicker {
 		List<Player> matchedPlayers = new ArrayList<Player>();
 		// @tries try how many times before stop
 		int tries = players.size();
+		Random ran = new Random();
 		while (tries-- > 0 && players.size() - playerCount >= 0) {
-			Random ran = new Random();
 			// randomly pick the first player, at least playerCount number of
 			// players available to pick
 			int firstPlayerIndex = ran
